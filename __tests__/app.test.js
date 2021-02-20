@@ -31,18 +31,131 @@ describe('app routes', () => {
       return client.end(done);
     });
 
-    test('returns animals', async () => {
+    test('returns characters', async () => {
 
       const expectation = [
+        {
+          'id': 1,
+          'first_name': 'Netty',
+          'last_name': 'Lerven',
+          'age': 35,
+          'gender': 'Non-binary',
+          'vegetarian': false,
+          'owner_id': 1
+        },
+        {
+          'id': 2,
+          'first_name': 'Assu',
+          'last_name': 'Baba',
+          'age': 25,
+          'gender': 'Male',
+          'vegetarian': false,
+          'owner_id': 1
+        },
+        {
+          'id': 3,
+          'first_name': 'Paul',
+          'last_name': 'Bogle',
+          'age': 30,
+          'gender': 'Male',
+          'vegetarian': false,
+          'owner_id': 1
+        },
+        {
+          'id': 4,
+          'first_name': 'Miss',
+          'last_name': 'Njie',
+          'age': 28,
+          'gender': 'Female',
+          'vegetarian': true,
+          'owner_id': 1
+        },
+        {
+          'id': 5,
+          'first_name': 'Sirius',
+          'last_name': 'Black',
+          'age': 35,
+          'gender': 'Non-binary',
+          'vegetarian': false,
+          'owner_id': 1
+        },
+        {
+          'id': 6,
+          'first_name': 'James',
+          'last_name': 'Potter',
+          'age': 35,
+          'gender': 'Male',
+          'vegetarian': false,
+          'owner_id': 1
+        },
+        {
+          'id': 7,
+          'first_name': 'Lucius',
+          'last_name': 'Malfoy',
+          'age': 40,
+          'gender': 'Non-binary',
+          'vegetarian': true,
+          'owner_id': 1
+        },
+        {
+          'id': 8,
+          'first_name': 'Nearly Headless',
+          'last_name': 'Nick',
+          'age': 1500,
+          'gender': 'Non-binary',
+          'vegetarian': false,
+          'owner_id': 1
+        },
+        {
+          'id': 9,
+          'first_name': 'Bloody',
+          'last_name': 'Baron',
+          'age': 2000,
+          'gender': 'Male',
+          'vegetarian': true,
+          'owner_id': 1
+        },
+        {
+          'id': 10,
+          'first_name': 'Odell',
+          'last_name': 'Beckham',
+          'age': 26,
+          'gender': 'Male',
+          'vegetarian': false,
+          'owner_id': 1
+        }
 
       ];
 
       const data = await fakeRequest(app)
-        .get('/animals')
+        .get('/characters')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(expectation);
+    });
+
+    test('returns character 7', async () => {
+
+      const expectation =
+      {
+        'id': 7,
+        'first_name': 'Lucius',
+        'last_name': 'Malfoy',
+        'age': 40,
+        'gender': 'Non-binary',
+        'vegetarian': true,
+        'owner_id': 1
+      }
+        ;
+
+      const data = await fakeRequest(app)
+        .get('/characters/7')
         .expect('Content-Type', /json/)
         .expect(200);
 
       expect(data.body).toEqual(expectation);
     });
   });
+
 });
