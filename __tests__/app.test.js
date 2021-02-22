@@ -194,6 +194,49 @@ describe('app routes', () => {
 
       expect(hectorSparta).toEqual(expectedCharacter);
     });
+    test('updates a character ', async () => {
+
+      const newCharacter = {
+        first_name: 'Hector',
+        last_name: 'Sparta',
+        age: 5000,
+        gender: 'Male',
+        vegetarian: false,
+      };
+
+
+
+      const expectedCharacter =
+      {
+        ...newCharacter,
+        id: 11,
+        owner_id: 1,
+      }
+        ;
+
+      await fakeRequest(app)
+        .put('/characters/11')
+        .send(newCharacter)
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      const updatedCharacter = await fakeRequest(app)
+        .get('/characters/11')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+
+      expect(updatedCharacter.body).toEqual(expectedCharacter);
+
+      const allCharacters = await fakeRequest(app)
+        .get('/characters')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      const hectorSparta = allCharacters.body.find(character => character.first_name === 'Hector');
+
+      expect(hectorSparta).toEqual(expectedCharacter);
+    });
 
 
   });
