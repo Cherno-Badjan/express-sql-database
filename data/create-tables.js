@@ -21,7 +21,7 @@ async function run() {
                     id SERIAL PRIMARY KEY NOT NULL,
                     first_name VARCHAR(512) NOT NULL,
                     last_name VARCHAR(512) NOT NULL,
-                    Age INTEGER NOT NULL,
+                    age INTEGER NOT NULL,
                     gender VARCHAR(512) NOT NULL,
                     vegetarian BOOLEAN NOT NULL,
                     owner_id INTEGER NOT NULL REFERENCES users(id)

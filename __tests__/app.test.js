@@ -156,6 +156,45 @@ describe('app routes', () => {
 
       expect(data.body).toEqual(expectation);
     });
-  });
 
+    test('creates a new character Hector Sparta in characters', async () => {
+
+      const newCharacter = {
+        first_name: 'Hector',
+        last_name: 'Sparta',
+        age: 301,
+        gender: 'Male',
+        vegetarian: false,
+      };
+
+
+
+      const expectedCharacter =
+      {
+        ...newCharacter,
+        id: 11,
+        owner_id: 1,
+      }
+        ;
+
+      const data = await fakeRequest(app)
+        .post('/characters')
+        .send(newCharacter)
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(expectedCharacter);
+
+      const allCharacters = await fakeRequest(app)
+        .get('/characters')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      const hectorSparta = allCharacters.body.find(character => character.first_name === 'Hector');
+
+      expect(hectorSparta).toEqual(expectedCharacter);
+    });
+
+
+  });
 });
