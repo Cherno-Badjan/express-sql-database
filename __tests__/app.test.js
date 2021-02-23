@@ -237,6 +237,35 @@ describe('app routes', () => {
 
       expect(hectorSparta).toEqual(expectedCharacter);
     });
+    test('deletes a character with matching id ', async () => {
+
+      const expectation = {
+        'id': 11,
+        'first_name': 'Hector',
+        'last_name': 'Sparta',
+        'age': 5000,
+        'gender': 'Male',
+        'vegetarian': false,
+        'owner_id': 1
+      };
+
+
+
+      const data = await fakeRequest(app)
+        .delete('/characters/11')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(expectation);
+
+      const nothing = await fakeRequest(app)
+        .get('/characters/11')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+
+      expect(nothing.body).toEqual('');
+    });
 
 
   });
