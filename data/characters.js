@@ -2,70 +2,70 @@ const characters = [{
 
   first_name: 'Netty',
   last_name: 'Lerven',
-  Age: 35,
-  gender: 'Non-binary',
+  age: 35,
+  gender_id: 1,
   vegetarian: false,
 }, {
 
   first_name: 'Assu',
   last_name: 'Baba',
-  Age: 25,
-  gender: 'Male',
+  age: 25,
+  gender_id: 2,
   vegetarian: false,
 }, {
 
   first_name: 'Paul',
   last_name: 'Bogle',
-  Age: 30,
-  gender: 'Male',
+  age: 30,
+  gender_id: 2,
   vegetarian: false,
 }, {
 
   first_name: 'Miss',
   last_name: 'Njie',
-  Age: 28,
-  gender: 'Female',
+  age: 28,
+  gender_id: 1,
   vegetarian: true,
 }, {
 
   first_name: 'Sirius',
   last_name: 'Black',
-  Age: 35,
-  gender: 'Non-binary',
+  age: 35,
+  gender_id: 3,
   vegetarian: false,
 }, {
 
-  first_name: 'James',
+  first_name: 'Lilly',
   last_name: 'Potter',
-  Age: 35,
-  gender: 'Male',
+  age: 35,
+  gender_id: 2,
   vegetarian: false,
 }, {
 
   first_name: 'Lucius',
   last_name: 'Malfoy',
-  Age: 40,
-  gender: 'Non-binary',
+  age: 40,
+  gender_id: 3,
   vegetarian: true,
 }, {
 
   first_name: 'Nearly Headless',
   last_name: 'Nick',
-  Age: 1500,
-  gender: 'Non-binary',
+  age: 1500,
+  gender_id: 3,
   vegetarian: false,
 }, {
 
   first_name: 'Bloody',
   last_name: 'Baron',
-  Age: 2000,
-  gender: 'Male',
+  age: 2000,
+  gender_id: 2,
   vegetarian: true,
 }, {
   first_name: 'Odell',
   last_name: 'Beckham',
-  Age: 26,
-  gender: 'Male',
+  age: 26,
+  gender_id: 2,
   vegetarian: false,
 }
 ];
