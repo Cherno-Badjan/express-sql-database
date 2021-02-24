@@ -38,7 +38,7 @@ const characters = [{
   first_name: 'Lilly',
   last_name: 'Potter',
   age: 35,
-  gender_id: 2,
+  gender_id: 1,
   vegetarian: false,
 }, {
 
